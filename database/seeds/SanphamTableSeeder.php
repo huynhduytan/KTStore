@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\carbon;
+use Illuminate\PhpVnDataGenerator\VnBase;
+use Illuminate\PhpVnDataGenerator\VnFullname;
+use Illuminate\PhpVnDataGenerator\VnPersonalInfo;
+
 
 class SanphamTableSeeder extends Seeder
 {
@@ -15,7 +20,7 @@ class SanphamTableSeeder extends Seeder
         $now = new Carbon('2019-11-28','Asia/Ho_Chi_Minh'); //Đây là một thư viên PHP giúp cho Developer làm việc với ngày giờ
         $uFN = new VnFullname();
         $uPI = new VnPersonalInfo();
-        $photos=array('sp1.jpg');
+        $photos=array('sp.jpg');
         $list=[];
         //lay ds loai san pham
         $dataLSP = DB::select('SELECT l_ma From loai');
