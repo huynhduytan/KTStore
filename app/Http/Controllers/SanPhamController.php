@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Sanpham;
+use App\Loai;
+use Session;
 
 class SanPhamController extends Controller
 {
@@ -15,7 +18,7 @@ class SanPhamController extends Controller
     public function index()
     {
         // Sử dụng Eloquent Model để truy vấn dữ liệu
-    $ds_sanpham = SanPham::all(); // SELECT * FROM sanpham
+    $ds_sanpham = Sanpham::all(); // SELECT * FROM sanpham
     // Đường dẫn đến view được quy định như sau: <FolderName>.<ViewName>
     // Mặc định đường dẫn gốc của method view() là thư mục `resources/views`
     // Hiển thị view `backend.sanpham.index`
