@@ -28,6 +28,7 @@ Route::get('/hello', 'ExampleController@hello')->name('hello');
 // route Hiển thị màn hình gioithieubanthan
 Route::get('/gioithieubanthan', 'ExampleController@gioithieubanthan')->name('gioithieubanthan');
 
+
 // biểu mẫu in ấn
 
 Route::get('/admin/danhsachsanpham/print', 'SanPhamController@print')->name('danhsachsanpham.print');
@@ -35,9 +36,11 @@ Route::get('/admin/danhsachsanpham/print', 'SanPhamController@print')->name('dan
 Route::get('/admin/danhsachsanpham/excel', 'SanPhamController@excel')->name('danhsachsanpham.excel');
 // xuất file pdf
 Route::get('/admin/danhsachsanpham/pdf', 'SanPhamController@pdf')->name('danhsachsanpham.pdf');
-
 //
 Route::resource('/admin/danhsachsanpham', 'SanPhamController');
+
+//danh sach loai
+Route::resource('/admin/danhsachloai', 'LoaiController');
 
 Auth::routes();
 

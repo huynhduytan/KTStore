@@ -1,9 +1,11 @@
 {{-- View này sẽ kế thừa giao diện từ `backend.layouts.index` --}}
 @extends('backend.layouts.master')
+
 {{-- Thay thế nội dung vào Placeholder `title` của view `backend.layouts.index` --}}
 @section('title')
 Danh sách sản phẩm
 @endsection
+
 {{-- Thay thế nội dung vào Placeholder `content` của view `backend.layouts.index` --}}
 @section('content')
 <!-- Đây là div hiển thị Kết quả (thành công, thất bại) sau khi thực hiện các chức năng Thêm, Sửa, Xóa.
@@ -17,33 +19,16 @@ Danh sách sản phẩm
       @endif
     @endforeach
 </div>
+
 <!-- Tạo nút Thêm mới sản phẩm 
 - Theo quy ước, các route đã được đăng ký trong file `web.php` đều phải được đặt tên để dễ dàng bảo trì code sau này.
 - Đường dẫn URL là đường dẫn được tạo ra bằng route có tên `danhsachsanpham.create`
 - Sẽ có dạng http://tenmiencuaban.com/admin/danhsachsanpham/create
 -->
 <a href="{{ route('danhsachsanpham.create') }}" class="btn btn-primary">Thêm mới sản phẩm</a>
-<!-- Tạo table hiển thị danh sách các sản phẩm -->
-<!-- Tạo nút xem biểu mẫu khi in trên web
-- Theo quy ước, các route đã được đăng ký trong file `web.php` đều phải được đặt tên để dễ dàng bảo trì code sau này.
-- Đường dẫn URL là đường dẫn được tạo ra bằng route có tên `sanpham.print`
-- Sẽ có dạng http://tenmiencuaban.com/admin/sanpham/print
--->
-<a href="{{ route('danhsachsanpham.print') }}" class="btn btn-primary">In ấn</a>
-<!-- Tạo nút Xuất Excel danh sách sản phẩm
-- Theo quy ước, các route đã được đăng ký trong file `web.php` đều phải được đặt tên để dễ dàng bảo trì code sau này.
-- Đường dẫn URL là đường dẫn được tạo ra bằng route có tên `danhsachsanpham.excel`
-- Sẽ có dạng http://tenmiencuaban.com/admin/danhsachsanpham/excel
--->
-<a href="{{ route('danhsachsanpham.excel') }}" class="btn btn-primary">Xuất Excel</a>
-<!-- Tạo nút Xuất PDF danh sách sản phẩm
-- Theo quy ước, các route đã được đăng ký trong file `web.php` đều phải được đặt tên để dễ dàng bảo trì code sau này.
-- Đường dẫn URL là đường dẫn được tạo ra bằng route có tên `danhsachsanpham.pdf`
-- Sẽ có dạng http://tenmiencuaban.com/admin/danhsachsanpham/pdf
--->
-<a href="{{ route('danhsachsanpham.pdf') }}" class="btn btn-primary">Xuất PDF</a>
-<table class="table table-bordered ">
 
+<!-- Tạo table hiển thị danh sách các sản phẩm -->
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>Mã</th>
@@ -61,7 +46,7 @@ Danh sách sản phẩm
             <tr>
                 <td>{{ $sp->sp_ma }}</td>
                 <td>{{ $sp->sp_ten }}</td>
-                <td><img src="{{ asset('storage/photos/' . $sp->sp_hinh) }}" class="img-list img" /></td>
+                <td><img src="{{ asset('assets/storage/photos/' . $sp->sp_hinh) }}" class="img-list" /></td>
                 <td>{{ $sp->loaisanpham->l_ten }}</td>
                 <td>
                     <!-- Tạo nút Sửa sản phẩm 
@@ -72,6 +57,7 @@ Danh sách sản phẩm
                     - Sẽ có dạng http://tenmiencuaban.com/admin/danhsachsanpham/{id}/edit
                     -->
                     <a href="{{ route('danhsachsanpham.edit', ['id' => $sp->sp_ma]) }}" class="btn btn-primary pull-left">Sửa</a>
+
                     <!-- Tạo nút Xóa sản phẩm 
                     - Theo quy ước, các route đã được đăng ký trong file `web.php` đều phải được đặt tên để dễ dàng bảo trì code sau này.
                     - Đường dẫn URL là đường dẫn được tạo ra bằng route có tên `danhsachsanpham.destroy`
@@ -93,4 +79,5 @@ Danh sách sản phẩm
             </tr>
         @endforeach
     </tbody>
+</table>
 @endsection
