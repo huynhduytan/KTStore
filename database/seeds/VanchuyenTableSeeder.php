@@ -1,17 +1,16 @@
 <?php
-
 use Illuminate\Database\Seeder;
-
-class VanchuyenTableSeeder extends Seeder
-{
+use Illuminate\PhpVnDataGenerator\VnBase;
+use Illuminate\PhpVnDataGenerator\VnFullname;
+use Illuminate\PhpVnDataGenerator\VnPersonalInfo;
+class VanchuyenTableSeeder extends Seeder {
     /**
      * Run the database seeds.
      *
      * @return void
      */
-    public function run()
-    {
-        $today = new DateTime('2020-01-14 09:00:00');
+    public function run() {
+        $today = new DateTime('2010-01-01 08:00:00');
         $list = [
             [
                 'vc_ma'       => 1,
@@ -53,6 +52,7 @@ class VanchuyenTableSeeder extends Seeder
                 'vc_taoMoi'   => $today->format('Y-m-d H:i:s'),
                 'vc_capNhat'  => $today->format('Y-m-d H:i:s')
             ]
-            ];   
+        ];
+        DB::table('vanchuyen')->insert($list);
     }
 }

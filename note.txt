@@ -1,0 +1,19 @@
+sinh key: php artisan key:generate
+
+neu co 1 thu muc nao vừa tạo mới trong dự án mà chưa đc git accept: thì gõ cmd lệnh:
+- git status => xem cái nào chưa git
+- git add <file>
+gõ git status để xem lại kết quả
+Minh Minh
+
+sửa file .env nếu chạy gặp lỗi thì chạy cmd 
+php artisan config:cache
+
+kho: id, tenkho,diachikho, nguoiphutrach, sdtngdo.
+phieunhapchitiet: id, phieunhapid, idkho, sp_Ten, soluongsp, gianhap, donvitinh
+phieunhap: id, maphieu, ngaylap
+phieuxuatchitiet: id, phieuxuatid, idkho, sp_Ten, soluongsp, gia, donvitinh
+
+
+generate optimized autoload file: (seeder not exist) :
+--> composer dump-autoload

@@ -5,7 +5,7 @@ class Loai extends Model
 {
     const     CREATED_AT    = 'l_taoMoi';
     const     UPDATED_AT    = 'l_capNhat';
-    protected $table        = 'cusc_loai';
+    protected $table        = 'loai';
     protected $fillable     = ['l_ten', 'l_taoMoi', 'l_capNhat', 'l_trangThai'];
     protected $guarded      = ['l_ma'];
     protected $primaryKey   = 'l_ma';

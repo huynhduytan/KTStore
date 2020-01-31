@@ -15,7 +15,7 @@ class SanphamTableSeeder extends Seeder {
         $uPI = new VnPersonalInfo();
         $faker    = Faker\Factory::create('vi_VN');
         $photos = array('hoahong.jpg','hoalan.jpg','hoatuoi.jpg');
-        $dataLoaiSanPham = DB::select('SELECT l_ma FROM cusc_loai');
+        $dataLoaiSanPham = DB::select('SELECT l_ma FROM loai');
         $lstLoaiSanPhamIds = [];
         foreach($dataLoaiSanPham as $key => $value){
             $lstLoaiSanPhamIds[] = $value->l_ma;
